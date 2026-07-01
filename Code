@@ -1,0 +1,32 @@
+import random
+
+# Map numbers to choices for rock-paper-scissors
+choices = {1: 'rock', 2: 'paper', 3: 'scissors'}
+
+# Get computer's choice
+computer_num = random.choice([1, 2, 3])
+computer_choice = choices[computer_num]
+
+# Get user's choice
+while True:
+    try:
+        user_num = int(input("Enter your number (1 for Rock, 2 for Paper, 3 for Scissors): "))
+        if user_num in choices:
+            break
+        else:
+            print("Invalid number. Please enter 1, 2, or 3.")
+    except ValueError:
+        print("Invalid input. Please enter a number.")
+user_choice = choices[user_num]
+
+print(f"You chose {user_choice} and computer chose {computer_choice}")
+
+# Determine the winner
+if user_num == computer_num:
+  print("It's a draw!")
+elif (user_num == 1 and computer_num == 3) or \
+     (user_num == 2 and computer_num == 1) or \
+     (user_num == 3 and computer_num == 2):
+  print("You win!")
+else:
+  print("You lose!")
